@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root{
+/* ### Primary */
+--Lime-Green: hsl(163, 72%, 41%);
+--Bright-Red: hsl(356, 69%, 56%);
+--Facebook: hsl(208, 92%, 53%);
+--Twitter: hsl(203, 89%, 53%);
+--Instagram: hsl(37, 97%, 70%);
+--Instagram2:hsl(329, 70%, 58%);
+--YouTube: hsl(348, 97%, 39%);
+
+/* #### Dark Theme */
+
+--Toggle: hsl(210, 78%, 56%);
+--Toggle2:hsl(146, 68%, 55%);
+
+/* #### Light Theme */
+
+--Toggle-light: hsl(230, 22%, 74%);
+
+/* #### Dark Theme */
+
+--VeryDarkBG: hsl(230, 17%, 14%);
+--VeryDarkTopBG: hsl(232, 19%, 15%);
+--DarkDesaturatedBlueCard: hsl(228, 28%, 20%);
+--DesaturatedBlueText: hsl(228, 34%, 66%);
+--WhiteText: hsl(0, 0%, 100%);
+
+/* #### Light Theme */
+
+--WhiteBG: hsl(0, 0%, 100%);
+--VeryPaleBlueTopBG: hsl(225, 100%, 98%);
+--LightGrayishBlueCard: hsl(227, 47%, 96%);
+--DarkGrayishBlueText: hsl(228, 12%, 44%);
+--VeryDarkBlueText: hsl(230, 17%, 14%);
+
+/* ### Font */
+
+--fuente: 'Inter', sans-serif;
+
+}
+
+html{
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+p{
+    margin: .5rem;
+}
+
+body{
+    margin: 0;
+    background-color: var(--VeryDarkBG);
+}
+
+.header{
+    width: 100%;
+    min-height: 15rem;
+    display: flex;
+    background-color: var(--VeryDarkTopBG);
+    justify-content: space-between;
+    padding: 0 3rem;
+    padding-top: 2rem;
+    position: relative;
+}
+
+
+.header__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.info-title{
+    font-size: 2.3rem;
+    font-family: var(--fuente);
+    color: var(--WhiteText);
+    font-weight: 700;
+}
+
+.info-followers{
+    color: var(--DesaturatedBlueText);
+    font-size: 1.5rem;
+    font-family: var(--fuente);
+    font-weight: 400;
+}
+
+.header-toogle{
+    display: flex;
+    width: 40%;
+    height: 6rem;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+.toggle-mode{
+    color: var(--DesaturatedBlueText);
+    font-family: var(--fuente);
+    font-size: 1.8rem;
+}
+
+/* toggle */
+.lbl{
+    display: inline-block;
+    width: 6.5rem;
+    height: 3.3rem;
+    background: 
+    radial-gradient(ellipse at left, var(--Toggle), transparent),        
+    radial-gradient(ellipse at right ,var(--Toggle2), transparent);
+    border-radius: 10rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.lbl::after{
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #262D49;
+    border-radius: 10rem;
+    position: absolute;
+    top: .5rem;
+    left: .4rem;
+    transition: .2s;
+}
+
+#switch:checked + .lbl::after{
+    left: 3.6rem;
+    background-color: #FFF;
+}
+
+#switch:checked + .lbl{
+    background: var(--Toggle-light);
+}
+
+#switch{
+    display: none;
+}
+
+/* Fin toggle */
+
+@media (max-width: 530px) { 
+    .header{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+    .header__info{
+        width: 100%;
+    }
+
+    .info-title{
+        font-size: 2.3rem;
+    }
+
+    .info-followers{
+        font-size: 2rem;
+    }
+
+    .header-toogle{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .header-toogle::before{
+        content: "";
+        width: 100%;
+        height: .1rem;
+        position: absolute;
+        top: -1rem;
+        background-color: var(--Toggle-light);
+    }
+
+    .toggle-mode{
+        font-size: 2rem;
+    }
+
+
+ }
+
+
+/* CARDS */
+
+.container__cards{
+    width: 100%;
+    min-height: 20rem;
+    background: linear-gradient(180deg,var(--VeryDarkTopBG) 50%,var(--VeryDarkBG)50%);
+}
+
+@media (max-width: 530px){
+    .container__cards{
+        background: var(--VeryDarkBG);
+    }
+}
+
+.cards__content{
+    width: 100%;
+    min-height: inherit;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+}
+
+.card{
+    background-color:#262D49;
+    width: 28rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    border-radius: .5rem;
+    position: relative;
+}
+
+.card__header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.header-img{
+    width: 2.5rem;
+}
+
+.header-user{
+    font-size: 1.5rem;
+    color: var(--DesaturatedBlueText);
+    font-family: var(--fuente);
+}
+
+.card__body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.body-number-follow{
+    font-size: 5rem;
+    color: var(--WhiteText);
+    font-family: var(--fuente);
+    line-height: 4.5rem;
+}
+
+.body-follow{
+    font-size: 2rem;
+    color: var(--DesaturatedBlueText);
+    font-family: var(--fuente);
+    letter-spacing: .6rem;
+}
+
+.card__footer{
+    width: 100%;
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-days{
+    color: var(--Lime-Green);
+    font-family: var(--fuente);
+}
+
+.footer-arrow-button{
+    transform: rotate(180deg);
+}
+
+.footer-days-red{
+    color: var(--Bright-Red);
+    font-family: var(--fuente);
+}
+
+.top-facebook::before{
+    content: "";
+    width: 100%;
+    height: .4rem;
+    background-color: var(--Facebook);
+    position: absolute;
+    top: 0;
+}
+
+.top-twitter::before{
+    content: "";
+    width: 100%;
+    height: .4rem;
+    background-color: var(--Facebook);
+    position: absolute;
+    top: 0;
+}
+
+.top-instagram::before{
+    content: "";
+    width: 100%;
+    height: .4rem;
+    background: radial-gradient(var(--Instagram),var(--Instagram2));
+    position: absolute;
+    top: 0;
+}
+
+.top-youtube::before{
+    content: "";
+    width: 100%;
+    height: .4rem;
+    background-color: var(--YouTube);
+    position: absolute;
+    top: 0;
+}
+
+/* TAJETAS */
+
+.section__tarjeta{
+    width: 100%;
+    min-height: 43rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.tarjeta__title-principal{
+    font-size: 3rem;
+    font-family: var(--fuente);
+    color: var(--WhiteText);
+}
+
+.tarjeta__container{
+    display: grid;
+    gap: 2rem;
+    grid-auto-rows: 15rem;
+    grid-template-columns: repeat(auto-fill,minmax(30rem,1fr));
+    place-items: center;
+}
+
+.tarjeta__content{
+    background-color:#262D49;
+    width: 30rem;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    gap: 2rem;
+}
+
+
+.tarjeta__header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tarjeta-title{
+    font-size: 1.5rem;
+    color: var(--DesaturatedBlueText);
+    font-family: var(--fuente);
+}
+
+.tarjeta-img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.tarjeta__body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tajeta-number{
+    font-size: 3rem;
+    margin: 0;
+    color: var(--WhiteText);
+    font-family: var(--fuente);
+}
+
+.tarjeta__up-btn{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.porcentaje{
+    font-size: 1.3rem;
+    color: var(--Lime-Green);
+    font-family: var(--fuente);
+}
+
+.porcentaje-red{
+    font-size: 1.3rem;
+    color: var(--Bright-Red);
+    font-family: var(--fuente);
+}
+
+.arrow-red{
+    transform: rotate(180deg);
+}
+
+/* Class JavaSCript */
+
+.body-light{
+    background-color: var(--WhiteBG);
+}
+
+.header-light{
+    background-color: var(--WhiteBG);
+}
+
+.bg-dark{
+    background: var(--WhiteBG);
+}
+
+.dark{
+    color: var(--VeryDarkBlueText);
+}
+
+.dark-h2{
+    color: var(--DarkGrayishBlueText);
+}
+
+.bg-dark-card{
+    background-color: var(--LightGrayishBlueCard);
+}
+
+
+
+/* 
+--WhiteBG: hsl(0, 0%, 100%);
+--VeryPaleBlueTopBG: hsl(225, 100%, 98%);
+--LightGrayishBlueCard: hsl(227, 47%, 96%);
+--DarkGrayishBlueText: hsl(228, 12%, 44%);
+--VeryDarkBlueText: hsl(230, 17%, 14%); */
